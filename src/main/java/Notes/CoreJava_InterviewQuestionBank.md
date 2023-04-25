@@ -11,6 +11,7 @@
 
     Object Initialization:
     ```
+
     public class Circle {
         private double radius;
     
@@ -18,6 +19,7 @@
             this.radius = radius;
         }
     }
+
     ```
 
     Overloading Constructors:
@@ -29,12 +31,11 @@
  - Interfaces are used to define common behavior that can be shared among multiple classes. 
  - They provide a way to achieve abstraction, multiple inheritance.
  - Constant variable, which is implicitly public, static, and final
- - `implements` keyword is used.
+ - The `implements` keyword is used.
 ---
 
 ### **Abstract Class**
- - An abstract class is a class that cannot be instantiated directly, but can be extended by other classes. 
- - It serves as a blueprint for other classes to derive from and provides common functionality that can be inherited by its subclasses
+ - An abstract class is a class that cannot be instantiated directly, but can be extended by other classes. It serves as a blueprint for other classes to derive from and provides common functionality that can be inherited by its subclasses.
 ---
 
 ### **Interface v/s Abstract Class**
