@@ -2,6 +2,9 @@
 
 [Abstract Class](#heading-3 "Goto Abstract Class")
 
+### **public static void main(String[] arg)**
+
+---
 ### **Constructors**
  - Constructors in Java are special methods that are used to create objects of a class.
  -  They are called automatically when an object is created using the new keyword.
@@ -73,6 +76,34 @@
  - Functional interface is an interface that has exactly one abstract method. 
  - Functional interfaces are also known as single abstract method (SAM) interfaces. 
  - They can have any number of default methods or static methods
+---
+
+### **Anonymous Class**
+ - An anonymous class is a type of inner class that is defined and instantiated at the same time without explicitly declaring a class name. 
+ - Anonymous classes are typically used for creating short, one-time-use classes with limited functionality. 
+ - They cannot define constructors or static members, and not being able to implement multiple interfaces. 
+ - They are best suited for use cases where a full-fledged named inner class or a separate standalone class may be unnecessary.
+
+```
+interface MyNewInterface {
+    void doSomething();
+}
+
+public class AnonymousClassDemo {
+    public static void main(String[] args) {
+        // Creating an anonymous class that implements MyInterface
+        MyNewInterface myObj = new MyNewInterface() {
+            @Override
+            public void doSomething() {
+                System.out.println("Anonymous class implementing doSomething()");
+            }
+        };
+
+        // Invoking the method of the anonymous class
+        myObj.doSomething();
+    }
+}
+```
 ---
 
 ### **Abstract Class**
