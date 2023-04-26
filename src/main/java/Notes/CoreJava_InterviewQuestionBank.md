@@ -1,9 +1,23 @@
 # **Core Java: Interview Question Bank**
 
-[Abstract Class](#heading-3 "Goto Abstract Class")
-
-### **public static void main(String[] arg)**
-
+# Table of Contents
+- [public static void main](#publicstaticvoidmain)
+- [Constructors**
+](#Constructors)
+- [super](#super)
+- [Section 2](#section-2)
+- [Section 3](#section-3)
+---
+### **public static void main**
+ - public
+   - Access modifier of main class. 
+   - Makes the main function globally available.
+ - static
+   - `main()` is static so that the compiler can call the method without the object of a class.
+ - void
+   - Return type of method.
+ - String[] arg
+   - Stores java command line arguments.     
 ---
 ### **Constructors**
  - Constructors in Java are special methods that are used to create objects of a class.
@@ -29,6 +43,18 @@
     
 ---
 
+### **super**
+ - `super` can be used to refer immediate parent class instance variable.
+ - `super` can be used to invoke immediate parent class instance method.
+ - `super` can be used to invoke immediate parent class constructor.
+
+    ```
+    super.name;
+    super.getName();
+    super(name);
+    ```  
+---
+
 ### **Interface**
  - An interface is a collection of abstract methods (methods without implementation) that can be used to define a contract that a class must adhere to. 
  - Interfaces are used to define common behavior that can be shared among multiple classes. 
@@ -42,12 +68,14 @@
 ---
 
 ### **Interface v/s Abstract Class**
-| Interface        | Abstract Class           | 
-| :------------- |:-------------| 
-| col 3 is      | right-aligned | 
-| Can have only abstract methods      | Can have both abstract methods and concrete methods      |  
-| Constructors are not allowed. | Constructors are  allowed.      |    
-| col 2 is      | centered      |  
+| Interface  | Abstract Class |
+|----------|----------|
+| Classes can implement multiple interfaces. | Classes can implement only one abstract class. |
+| Can have only abstract methods. | Can have both abstract methods and concrete methods. |
+| Methods are by default public and abstract. | Methods can have any access modifiers. |
+| Constructors are not allowed. | Constructors are  allowed. |
+| Instance variables are not allowed. | Instance variables are  allowed. |
+
 ---
 
 ### **Abstract Method**
