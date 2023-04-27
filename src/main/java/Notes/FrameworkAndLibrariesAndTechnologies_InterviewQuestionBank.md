@@ -19,6 +19,9 @@
 ### **REST API Authentication**
 ---
 
+### **Bearer Token**
+---
+
 ### **Keycloak**
 ---
 

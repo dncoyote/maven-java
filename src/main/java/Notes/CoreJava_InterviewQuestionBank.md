@@ -246,6 +246,15 @@ public class AnonymousClassDemo {
 ```
 ---
 
+### **public**
+---
+
+### **private**
+---
+
+### **protected**
+---
+
 ### **Abstract Class**
 
 ---
