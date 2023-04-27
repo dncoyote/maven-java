@@ -12,3 +12,96 @@
  - Once the HTTP request is sent to the server, the server processes the request and generates an HTTP response, which is sent back to the client with the requested data. The response typically contains a response status code indicating the outcome of the request (e.g., 200 OK, 404 Not Found, etc.), headers with additional information, and optionally, a response body with the requested data.
 
 ---
+
+### **REST API**
+---
+
+### **REST API Authentication**
+---
+
+### **Keycloak**
+---
+
+### **JPA**
+---
+
+### **Hibernate**
+---
+
+### **Hibernate v/s JPA**
+---
+
+### **JPA Repository**
+---
+
+### **Spring Boot**
+---
+
+### **@Autowired**
+---
+
+### **Microservices**
+---
+
+### **API Gateway**
+---
+
+### **Load Balancing in API Gateway**
+---
+
+### **Service Discovery**
+---
+
+### **Eureka Server**
+---
+
+### **@FeignClient**
+---
+
+### **Transactional**
+---
+
+### **Docker**
+---
+
+### **Docker file contents**
+---
+
+### **Kubernetes**
+---
+
+### **Queueing Libraries**
+---
+
+### **Apache Kafka**
+---
+
+### **Message Queueing**
+---
+
+### **Rabbit MQ**
+---
+
+### **MQTT/Mosquito**
+---
+
+### **Swagger**
+---
+
+### **EC2**
+---
+
+### **Amplify**
+---
+
+### **DynamoDB**
+---
+
+### **Lambda**
+---
+
+### **REST**
+---
+
+### **HTTP Requests**
+---

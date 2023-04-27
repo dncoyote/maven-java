@@ -2,7 +2,7 @@
 
 # Table of Contents
 - [public static void main](#publicstaticvoidmain)
-- [Constructors**
+- [Constructors
 ](#Constructors)
 - [super](#super)
 - [Section 2](#section-2)
@@ -19,9 +19,13 @@
  - String[] arg
    - Stores java command line arguments.     
 ---
+
+### **Primitive**
+---
+
 ### **Constructors**
  - Constructors in Java are special methods that are used to create objects of a class.
- -  They are called automatically when an object is created using the new keyword.
+ -  They are called automatically when an object is created using the `new` keyword.
  -  They are used to initialize the state of the object. 
  -  Constructors have the same name as the class and do not have a return type, not even void.
  - The need for constructors in Java arises from the fact that objects of a class may require some initial setup or state initialization before they can be used
@@ -53,6 +57,72 @@
     super.getName();
     super(name);
     ```  
+---
+
+### **String**
+---
+
+### **String v/s String Builder v/s String Builder**
+---
+
+### **static**
+---
+
+### **final**
+---
+
+### **finally**
+---
+
+### **finalize**
+---
+
+### **Exception handling**
+---
+
+### **Custom Exception**
+---
+
+### **Throw**
+---
+
+### **Throws**
+---
+
+### **Wrapper Classes**
+---
+
+### **Collection**
+---
+
+### **Collection v/s Collections**
+---
+
+### **List**
+---
+
+### **Set**
+---
+
+### **Map**
+---
+
+### **Queue**
+---
+
+### **Threads**
+---
+
+### **Comparable**
+---
+
+### **Comparator**
+---
+
+### **Transient**
+---
+
+### **Generics**
 ---
 
 ### **Interface**
@@ -132,6 +202,47 @@ public class AnonymousClassDemo {
         myObj.doSomething();
     }
 }
+```
+---
+
+### **Inheritance**
+ - Inheritance allows one class to inherit properties and methods from another class. 
+ - The class that is being inherited from is called the superclass or parent class, and the class that inherits is called the subclass or child class.
+ - Inheritance is achieved using the keyword `extends` and then the subclass can access the non-private fields and methods of its superclass as if they were its own.
+
+```
+    class Animal {
+        protected String name;
+        
+        public Animal(String name) {
+            this.name = name;
+        }
+        
+        public void speak() {
+            System.out.println("I am an animal.");
+        }
+    }
+
+    class Cat extends Animal {
+        public Cat(String name) {
+            super(name);
+        }
+        
+        public void speak() {
+            System.out.println("I am a cat.");
+        }
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            Animal animal1 = new Animal("Generic Animal");
+            Animal cat1 = new Cat("Fluffy");
+            
+            animal1.speak(); // Output: I am an animal.
+            cat1.speak(); // Output: I am a cat.
+            dog1.speak(); // Output: I am a dog.
+        }
+    }
 ```
 ---
 
