@@ -66,6 +66,90 @@
 ---
 
 ### **static**
+ - `static` keyword is used to create variables, methods, and nested classes that belong to the class rather than to any specific instance of the class.
+   - Static variables: Also known as class variables, they are shared by all instances of a class. They are initialized only once when the class is loaded, and any changes to them are reflected across all instances of the class.
+  ```
+  public class Counter {
+    private static int count = 0;
+    
+    public Counter() {
+        count++;
+    }
+    
+    public static int getCount() {
+        return count;
+    }
+}
+
+// Usage:
+Counter c1 = new Counter();
+Counter c2 = new Counter();
+System.out.println(Counter.getCount()); // Prints 2
+  ```
+   - Static methods: They belong to the class rather than to any instance of the class. They can be called without creating an object of the class and can access only static variables and methods of the class.
+  ```
+  public class MathUtils {
+    public static int add(int a, int b) {
+        return a + b;
+    }
+    
+    public static double square(double x) {
+        return x * x;
+    }
+}
+
+// Usage:
+int sum = MathUtils.add(2, 3);
+double result = MathUtils.square(4.0);
+   
+  ```   
+   - Static nested classes: They are declared as static when they are nested inside another class. They are like regular nested classes, but they do not have access to the instance variables of the enclosing class.
+   ```
+   public class Person {
+    private String name;
+    private static class Address {
+        private String street;
+        private String city;
+        private String state;
+        
+        public Address(String street, String city, String state) {
+            this.street = street;
+            this.city = city;
+            this.state = state;
+        }
+        
+        public String getFullAddress() {
+            return street + ", " + city + ", " + state;
+        }
+    }
+    
+    public Person(String name, String street, String city, String state) {
+        this.name = name;
+        this.address = new Address(street, city, state);
+    }
+    
+    public String getFullAddress() {
+        return address.getFullAddress();
+    }
+}
+
+// Usage:
+Person person = new Person("John Doe", "123 Main St", "Anytown", "CA");
+System.out.println(person.getFullAddress()); // Prints "123 Main St, Anytown, CA"
+
+   ```
+ - In Java `static` keyword is used in creating constants, utility methods, and factory methods. 
+  
+---
+
+### **static v/s instance**
+| static  | instance |
+|----------|----------|
+| Static members can be accessed using the class name. | Instance members can only be accessed through an instance of the class. |
+| Static members are allocated memory only once, regardless of the number of instances created. | Instance members are allocated memory for each instance of the class. |
+| Static members have class-level scope. | Instance members have instance-level scope. |
+| Static members are used when you want to share data or functionality across all instances of a class. | Instance members are used when you want to have different data or functionality for each instance of a class. |
+
 ---
 
 ### **final**
@@ -247,9 +331,20 @@ public class AnonymousClassDemo {
 ---
 
 ### **public**
+ - `public` is an access modifier that can be applied to classes, methods, and fields. 
+ - `public` members can be accessed from any other class or package.
+ - `public` members can be inherited by subclasses.
+ - `public` members are visible to all other classes and packages.
+ - `public` members have no access restrictions.
+
 ---
 
 ### **private**
+ - `private` is an access modifier that can be applied to classes, methods, and fields. When a class, method, or field is marked as private, it can only be accessed within the same class in which it is declared.
+ - `private` members can only be accessed within the same class in which they are declared.
+ - `private` members are not visible to other classes or packages.
+ - `private` members have the most restrictive access.
+
 ---
 
 ### **protected**

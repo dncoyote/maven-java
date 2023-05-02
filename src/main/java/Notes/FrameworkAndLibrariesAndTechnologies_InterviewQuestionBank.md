@@ -22,6 +22,9 @@
 ### **Bearer Token**
 ---
 
+### **IAM**
+---
+
 ### **Keycloak**
 ---
 
