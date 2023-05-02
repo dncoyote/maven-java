@@ -342,12 +342,18 @@ public class AnonymousClassDemo {
 ### **private**
  - `private` is an access modifier that can be applied to classes, methods, and fields. When a class, method, or field is marked as private, it can only be accessed within the same class in which it is declared.
  - `private` members can only be accessed within the same class in which they are declared.
+ - `private` members cannot be inherited by subclasses.
  - `private` members are not visible to other classes or packages.
  - `private` members have the most restrictive access.
 
 ---
 
 ### **protected**
+- `protected` is an access modifier that can be applied to classes, methods, and fields. When a class, method, or field is marked as protected, it can be accessed within the same class, within subclasses, and within the same package.
+ - `protected` members can be accessed within the same class, within subclasses, and within the same package.
+ - `protected` members can be inherited by subclasses.
+ - `protected` members are not visible to other classes or packages.
+ - `protected` members have more access than private members, but less access than public members.
 ---
 
 ### **Abstract Class**

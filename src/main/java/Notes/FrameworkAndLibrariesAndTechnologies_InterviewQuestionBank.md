@@ -19,7 +19,29 @@
 ### **REST API Authentication**
 ---
 
+### **JWT**
+ - JSON Web Token is a standard that defines a compact and self-contained way to transmit information between parties as a JSON object. JWTs are commonly used for authentication and authorization in web applications and APIs.
+ - Authentication and authorization is performed by sending them in the HTTP Authorization header of a request to an API. The JWT is then verified on the server-side to ensure that it is valid and that the user has the necessary permissions to access the requested resource.
+ - A JWT is composed of three parts: 
+   - Header: The header contains metadata about the JWT, such as the type of token and the hashing algorithm used to generate the signature. 
+   - Payload: The payload contains claims, which are statements about an entity (typically the user) and additional metadata. Claims can be used to provide information such as the user's identity, role, or permissions.
+   - Signature: The signature is used to verify that the message has not been tampered with and that the sender is who they claim to be.
+---
+
 ### **Bearer Token**
+---
+
+### **Spring Boot Actuator**
+ - Spring Boot Actuator is a sub-project of Spring Boot that provides endpoints and tools for monitoring and managing a Spring Boot application. Spring Boot Actuator provides several features, including:
+   - Health checks
+   - Metrics
+   - Auditing
+   - Environment and configuration
+   - Endpoints
+  
+---
+
+### **Spring Stereotype annotation**
 ---
 
 ### **IAM**
