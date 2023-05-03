@@ -20,25 +20,34 @@
 17. [Collection](#collection)
 18. [Collection v/s Collections](#collection-vs-collections)
 19. [List](#list)
-20. [List](#list)
-21. [List](#list)
-22. [List](#list)
-23. [List](#list)
-24. [List](#list)
-25. [List](#list)
-26. [List](#list)
-27. [List](#list)
-28. [List](#list)
-29. [List](#list)
-30. [List](#list)
-31. [List](#list)
-32. [List](#list)
-33. [List](#list)
-34. [List](#list)
-35. [List](#list)
-36. [List](#list)
-37. [List](#list)
-38. [List](#list)
+20. [**Set**](#set)
+21. [**Map**](#map)
+22. [**Queue**](#queue)
+23. [**Threads**](#threads)
+24. [**Comparable**](#comparable)
+25. [**Comparator**](#comparator)
+26. [**Transient**](#transient)
+27. [**Generics**](#generics)
+28. [**Interface**](#interface)
+29. [**Abstract Class**](#abstract-class)
+30. [**Interface v/s Abstract Class**](#interface-vs-abstract-class)
+31. [**Runnable Interface**](#runnable-interface)
+32. [**Callable Interface**](#callable-interface)
+33. [**Abstract Method**](#abstract-method)
+34. [**Marker Interface**](#marker-interface)
+35. [**Cloneable Interface**](#cloneable-interface)
+36. [**Serializable Interface**](#serializable-interface)
+37. [**Functional Interface**](#functional-interface)
+38. [**Anonymous Class**](#anonymous-class)
+39. [**Inheritance**](#inheritance)
+40. [**public**](#public)
+41. [**private**](#private)
+42. [**protected**](#protected)
+43. [**Default**](#default)
+44. [**Predicate**](#predicate)
+45. [**StreamAPI**](#streamapi)
+46. [**Lambda**](#lambda)
+
 
 ---
 ### **public static void main**
@@ -220,15 +229,58 @@
 ---
 
 ### **Exception handling**
+ - Exception handling in Java is a mechanism to handle runtime errors and exceptional situations that may occur during the execution of a program.
+ - It is a way to gracefully recover from errors and prevent the program from crashing.
+ - Java provides a built-in mechanism to handle exceptions using the try-catch block. 
+ - The try block contains the code that may cause an exception, and the catch block handles the exception if it occurs.
+    ```
+    try {
+        // Code that may cause an exception
+        int result = 10 / 0;
+    } catch (ArithmeticException e) {
+         // Exception handling code
+         System.out.println("An exception occurred: " + e.getMessage());
+    } finally {
+        // Code that will always be executed
+         System.out.println("Done!");
+    }
+    ```
+
 ---
 
 ### **Custom Exception**
+ - Custom exceptions can be created by extending the Exception class or one of its subclasses like RuntimeException. 
+- By creating custom exceptions, developers can define their own exceptions for specific use cases, improving code clarity and allowing for more targeted exception handling.
+    ```
+    public class CustomException extends Exception {
+        public CustomException(String message) {
+            super(message);
+        }
+    }
+    ```
 ---
 
 ### **Throw**
+ - `throw` is a keyword used to throw an exception explicitly. It is used to throw a custom or predefined exception explicitly within a method or block of code.
+    ```
+    public void divide(int a, int b) {
+    if (b == 0) {
+        throw new ArithmeticException("Division by zero is not allowed");
+    }
+    int result = a / b;
+    System.out.println("Result: " + result);
+    }
+    ```
 ---
 
 ### **Throws**
+ - `throws` keyword is used in method signatures to declare that a method might throw certain types of checked exceptions.
+ - When a method declares that it throws an exception, it means that the method might encounter a situation that could cause an exception to be thrown, and that the method is not able to handle that exception on its own. Instead, the method declares that it might throw the exception, and it is the responsibility of the calling code to handle the exception. 
+    ```
+    public void readFromFile(String filename) throws IOException {
+    // code to read from the file
+    }
+    ```
 ---
 
 ### **Wrapper Classes**
