@@ -79,7 +79,7 @@
 | String | String Builder | String Buffer |
 | --------------- | --------------- | --------------- |
 | `String` objects are immutable, meaning that once a String object is created, its contents cannot be changed. Any modifications to a String object actually create a new String object with the modified content. | `StringBuilder` is a mutable class that allows you to modify a string's content without creating a new object. | `StringBuffer` is a mutable class that allows you to modify a string's content without creating a new object. |
-| This makes String objects thread-safe and secure  | StringBuilder objects are not thread-safe and should not be used in a multi-threaded environment  | `StringBuffer` objects are not thread-safe and should not be used in a multi-threaded environment  |
+| This makes String objects thread-safe and secure  | StringBuilder objects are not thread-safe and should not be used in a multi-threaded environment  | `StringBuffer` objects are thread-safe and can be used in a multi-threaded environment  |
 | Slow  | Faster than `String`  |  `StringBuffer` is thread-safe, making it ideal for multi-threaded environments  |
 ---
 
@@ -284,8 +284,7 @@
         Thread thread = new Thread(task);
         thread.start();
         }
-      }
-    }
+     }
     ```  
 ---
 
@@ -418,7 +417,51 @@
  - `protected` members have more access than private members, but less access than public members.
 ---
 
-### **Abstract Class**
+### **Default**
+ - Default method
+   -  It is a method defined within an interface that provides a default implementation
+    ```
+    public interface MyInterface {
+    default void myMethod() {
+        System.out.println("This is a default method.");
+        }
+    }
+    ```
+ - Default access modifier
+    - When a class, method, or variable is declared with no access modifier, it has "default" or "package-private" access. This means that it can only be accessed by classes within the same package.
+    ```
+   class MyClass {
+   int myVariable; // default access modifier
+    }
+    ```
+---
+
+### **Predicate**
+
+---
+
+### **StreamAPI**
+ - Stream API in Java provides a way to process collections of objects in a declarative and functional style.
+ - It is part of the Java Collections Framework.
+ - It provides a set of operations that can be performed on streams, such as filtering, mapping, sorting, and reducing.
+    ```
+    List<String> list = Arrays.asList("apple", "banana", "cherry", "date");
+
+    // create a stream from the list
+    Stream<String> stream = list.stream();
+
+    // filter the stream to only include elements starting with "a"
+    Stream<String> filteredStream = stream.filter(s -> s.startsWith("a"));
+
+    // map the filtered stream to uppercase strings
+    Stream<String> mappedStream = filteredStream.map(String::toUpperCase);
+
+    // print the mapped stream to the console
+    mappedStream.forEach(System.out::println);
+    ```
+---
+
+### **Lambda**
 
 ---
 
