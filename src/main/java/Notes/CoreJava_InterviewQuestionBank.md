@@ -21,6 +21,16 @@
 ---
 
 ### **Primitive**
+ - A primitive is a data type that represents a single value and is not an object.
+ - There are 8 primitive datatypes in java
+   - boolean
+   - byte
+   - short
+   - int
+   - long
+   - float
+   - double
+   - char
 ---
 
 ### **Constructors**
@@ -60,9 +70,16 @@
 ---
 
 ### **String**
+ - `String` is a class that represents a sequence of characters. Strings are widely used in Java programming, and they are used to store and manipulate text-based data such as names, addresses, and other textual information.
+ - `String` in Java are reference types, which means that they are actually objects that contain a reference to a memory location where the string's characters are stored. This is in contrast to primitive types (like int or char), which are not objects and are stored directly in memory.
 ---
 
-### **String v/s String Builder v/s String Builder**
+### **String v/s String Builder v/s String Buffer**
+| String | String Builder | String Buffer |
+| --------------- | --------------- | --------------- |
+| `String` objects are immutable, meaning that once a String object is created, its contents cannot be changed. Any modifications to a String object actually create a new String object with the modified content. | `StringBuilder` is a mutable class that allows you to modify a string's content without creating a new object. | `StringBuffer` is a mutable class that allows you to modify a string's content without creating a new object. |
+| This makes String objects thread-safe and secure  | StringBuilder objects are not thread-safe and should not be used in a multi-threaded environment  | `StringBuffer` objects are not thread-safe and should not be used in a multi-threaded environment  |
+| Slow  | Row 3 Column 2  |  `StringBuffer` thread-safe, making it a ideal for multi-threaded environments  |
 ---
 
 ### **static**
@@ -163,7 +180,10 @@
  -  `finally` keyword is used to define a block of code that will be executed after a try block, whether an exception is thrown or not. It is often used to perform cleanup operations like closing a file or releasing a resource that was opened in the try block.
 ---
 
-### **finalize**
+### **finalize()**
+ - `finalize()` is a method in Java that is called by the garbage collector when an object is no longer being used and is about to be garbage collected. 
+ - The purpose of `finalize()` is to give an object a chance to perform any necessary cleanup operations before it is destroyed.
+ - The `finalize()` method is defined in the Object class, so all classes in Java have a `finalize()` method inherited from Object. By default, the `finalize()` method does nothing, so if a class needs to perform cleanup operations, it should override this method.
 ---
 
 ### **Exception handling**
@@ -179,6 +199,9 @@
 ---
 
 ### **Wrapper Classes**
+ - Wrapper classes are classes that provide a way to use primitive data types as objects.
+ - Wrapper classes provide several useful methods for working with primitive data types.
+ - Each primitive data type has a corresponding wrapper class.
 ---
 
 ### **Collection**
@@ -239,6 +262,7 @@
 
 ### **Runnable Interface**
  - The Runnable interface is a functional interface in Java that defines a single abstract method run(). It is commonly used to define the code that should be executed in a new thread.
+  
     ```
     public class MyTask implements Runnable {
     private String message;
