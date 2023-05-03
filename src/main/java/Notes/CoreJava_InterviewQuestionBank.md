@@ -2,11 +2,12 @@
 
 # Table of Contents
 - [public static void main](#publicstaticvoidmain)
-- [Constructors
-](#Constructors)
+- [Primitive](#Primitive)
+- [Constructors](#Constructors)
 - [super](#super)
+- [String](#String)
+- [String v/s StringBuilder v/s StringBuffer](#Stringv/sStringBuilderv/sStringBuffer)
 - [Section 2](#section-2)
-- [Section 3](#section-3)
 ---
 ### **public static void main**
  - public
@@ -79,7 +80,7 @@
 | --------------- | --------------- | --------------- |
 | `String` objects are immutable, meaning that once a String object is created, its contents cannot be changed. Any modifications to a String object actually create a new String object with the modified content. | `StringBuilder` is a mutable class that allows you to modify a string's content without creating a new object. | `StringBuffer` is a mutable class that allows you to modify a string's content without creating a new object. |
 | This makes String objects thread-safe and secure  | StringBuilder objects are not thread-safe and should not be used in a multi-threaded environment  | `StringBuffer` objects are not thread-safe and should not be used in a multi-threaded environment  |
-| Slow  | Row 3 Column 2  |  `StringBuffer` thread-safe, making it a ideal for multi-threaded environments  |
+| Slow  | Faster than `String`  |  `StringBuffer` is thread-safe, making it ideal for multi-threaded environments  |
 ---
 
 ### **static**
@@ -328,26 +329,26 @@
  - They cannot define constructors or static members, and not being able to implement multiple interfaces. 
  - They are best suited for use cases where a full-fledged named inner class or a separate standalone class may be unnecessary.
 
-```
-interface MyNewInterface {
-    void doSomething();
-}
-
-public class AnonymousClassDemo {
-    public static void main(String[] args) {
-        // Creating an anonymous class that implements MyInterface
-        MyNewInterface myObj = new MyNewInterface() {
-            @Override
-            public void doSomething() {
-                System.out.println("Anonymous class implementing doSomething()");
-            }
-        };
-
-        // Invoking the method of the anonymous class
-        myObj.doSomething();
+    ```
+    interface MyNewInterface {
+        void doSomething();
     }
-}
-```
+
+    public class AnonymousClassDemo {
+        public static void main(String[] args) {
+            // Creating an anonymous class that implements MyInterface
+            MyNewInterface myObj = new MyNewInterface() {
+                @Override
+                public void doSomething() {
+                    System.out.println("Anonymous class implementing doSomething()");
+                }
+            };
+
+            // Invoking the method of the anonymous class
+            myObj.doSomething();
+        }
+    }
+    ```
 ---
 
 ### **Inheritance**
@@ -355,7 +356,7 @@ public class AnonymousClassDemo {
  - The class that is being inherited from is called the superclass or parent class, and the class that inherits is called the subclass or child class.
  - Inheritance is achieved using the keyword `extends` and then the subclass can access the non-private fields and methods of its superclass as if they were its own.
 
-```
+    ```
     class Animal {
         protected String name;
         
@@ -388,7 +389,7 @@ public class AnonymousClassDemo {
             dog1.speak(); // Output: I am a dog.
         }
     }
-```
+    ```
 ---
 
 ### **public**
