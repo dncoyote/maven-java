@@ -316,7 +316,7 @@
 ### **Comparator**
 ---
 
-### **Transient**
+### **Which collection should we use during multithreading?**
 ---
 
 ### **Generics**
@@ -546,6 +546,10 @@
 ---
 
 ### **Lambda**
+
+---
+
+### **Transient**
 
 ---
 

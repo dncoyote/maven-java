@@ -50,6 +50,10 @@
   
 ---
 
+### **ControllerAdvice**
+
+---
+
 ### **Spring Stereotype annotation**
 ---
 
@@ -77,6 +81,10 @@
 ---
 
 ### **Spring Boot**
+
+---
+
+### **Profile in Spring Boot**
 
 ---
 
@@ -141,6 +149,14 @@
 ---
 
 ### **MQTT/Mosquito**
+
+---
+
+### **Redis**
+
+---
+
+### **qualifier**
 
 ---
 
