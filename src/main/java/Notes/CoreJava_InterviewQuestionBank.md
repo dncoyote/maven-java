@@ -301,7 +301,16 @@
 ### **Set**
 ---
 
+### **Treeset**
+---
+
 ### **Map**
+---
+
+### **Concurrent Hashmap**
+---
+
+### **Synchronized Hashmap**
 ---
 
 ### **Queue**
@@ -545,19 +554,71 @@
     ```
 ---
 
-### **Lambda**
-
+### **Lambda Expression**
+ - Lambda Expression provide a concise way to express functionality that can be passed around like data.
+ - A lambda expression is a compact piece of code that is used to represent an anonymous function (a function without a name) that can be passed as an argument to a method or stored as a variable. It consists of parameters, the arrow operator, and a body.
+    ```
+    public class HelloWorld {
+    public static void main(String[] args) {
+        Runnable hello = () -> System.out.println("Hello, world!");
+        hello.run();
+        }
+    }
+    -------------------
+    public class HelloWorld {
+    public static void main(String[] args) {
+        IntBinaryOperator add = (a, b) -> a + b;
+        int result = add.applyAsInt(3, 5);
+        System.out.println("3 + 5 = " + result);
+        }
+    }
+    -------------------
+    public class HelloWorld {
+    public static void main(String[] args) {
+        Function<String, Integer> length = s -> s.length();
+        int stringLength = length.apply("Hello, world!");
+        System.out.println("Length of string: " + stringLength);
+        }
+    }
+    -------------------
+    public class HelloWorld {
+    public static void main(String[] args) {
+        List<String> strings = Arrays.asList("Hello", "world", "!");
+        List<Integer> lengths = strings.stream()
+                                        .map(s -> s.length())
+                                        .collect(Collectors.toList());
+        System.out.println("Lengths: " + lengths);
+        }
+    }
+    -------------------
+    public class HelloWorld {
+    public static void main(String[] args) {
+        Runnable hello = System.out::println;
+        hello.run("Hello, world!");
+        }
+    }
+    ```
 ---
 
 ### **Transient**
-
  - `transient` keyword is used to mark a class variable as not being serialized during object serialization. Serialization is the process of converting an object into a stream of bytes, so that it can be saved to a file or sent over a network.
  - When a variable is marked as transient, its value will not be saved as part of the serialization process. Instead, when the object is deserialized (i.e., converted back from a stream of bytes into an object), the transient variable will be set to its default value (i.e., null for object types, 0 for numeric types, and false for boolean types).
     ```
     private transient String myTransientString
-    
-    ```
 
+    ```
 ---
 
+### **Garbage Collection**
+ - Garbage Collection is an automated process of managing the memory in Java. It helps to free up the memory space occupied by the objects that are no longer being used by the program.
+ - Garbage Collection is one of the key features of Java that helps to make Java a memory-safe language.
+ - When an object is created, it takes up a certain amount of memory on the heap. When the object is no longer being used, it becomes eligible for garbage collection. The garbage collector then frees up the memory space occupied by the object, making it available for other objects to use.
+ - Java provides automatic garbage collection, which means that the programmer does not have to explicitly free up memory. The garbage collector runs periodically, or when the heap becomes full, and identifies objects that are no longer being used by the program. It then frees up the memory space occupied by these objects.
+---
 
+### **Garbage Collection in Java 11**
+ - One of the major changes in Java 11 is the introduction of a new garbage collector called the Z Garbage Collector (ZGC).
+ - ZGC is a low-latency garbage collector that can handle heaps ranging from a few hundred megabytes to several terabytes in size, with a maximum pause time of 10ms. It is designed to reduce the impact of garbage collection on the application's performance and improve overall throughput.
+ - Another change in Java 11 is the introduction of the Epsilon garbage collector. The Epsilon garbage collector is a no-op garbage collector that is intended for use in scenarios where the application does not need any garbage collection. It is designed to eliminate the overhead of garbage collection and improve the performance of applications that do not generate garbage.
+
+---
