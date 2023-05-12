@@ -51,7 +51,19 @@
 ---
 
 ### **ControllerAdvice**
+ - `@ControllerAdvice` is an annotation used to define global exception handlers that are applied to all controllers in an application.
+ - When an exception occurs during the execution of a controller method, Spring Boot looks for an appropriate exception handler to handle the exception. If no specific exception handler is found, Spring Boot looks for a global exception handler defined using the `@ControllerAdvice` annotation.
+ -This can be useful for handling common exceptions such as NullPointerException, IllegalArgumentException, or IllegalStateException.  
+  ```
+  @ControllerAdvice
+  public class GlobalExceptionHandler {
 
+    @ExceptionHandler(value = {NullPointerException.class, IllegalArgumentException.class})
+    public ResponseEntity<Object> handleException(Exception ex) {
+        return new ResponseEntity<>("An error occurred: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+}
+  ```
 ---
 
 ### **Spring Stereotype annotation**
@@ -72,6 +84,14 @@
 
 ---
 
+### **Hibernate Interfaces**
+
+---
+
+### **Hibernate Locks**
+
+---
+
 ### **Hibernate v/s JPA**
 
 ---
@@ -82,6 +102,11 @@
 
 ### **Spring Boot**
 
+---
+
+### **Beans in Spring Boot**
+ - In Spring Boot, beans are created using a process called "dependency injection". Dependency injection is a design pattern in which objects are passed their dependencies instead of creating them themselves. This pattern is implemented by the Spring framework, and it allows for loosely-coupled and easily testable code.
+ - When a Spring Boot application starts up, the Spring framework scans the project for classes that are annotated with @Component, @Service, @Controller, @Repository, or @Configuration. These annotations indicate that a class should be treated as a bean, and Spring creates an instance of the class and registers it in its container.
 ---
 
 ### **Profile in Spring Boot**
@@ -160,6 +185,10 @@
 
 ---
 
+### **hystrix**
+
+---
+
 ### **Swagger**
 
 ---
@@ -185,5 +214,13 @@
 ---
 
 ### **HTTP Requests**
+
+---
+
+### **Lazy Loading**
+
+---
+
+### **Eager Loading**
 
 ---
