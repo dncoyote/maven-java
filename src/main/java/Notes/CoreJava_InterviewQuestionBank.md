@@ -308,6 +308,8 @@
 ---
 
 ### **Concurrent Hashmap**
+ - ConcurrentHashMap is a class in Java's that provides a thread-safe implementation of the Map interface. 
+ - It is designed to be used in concurrent (multi-threaded) environments where multiple threads can access and modify the map concurrently.
 ---
 
 ### **Synchronized Hashmap**

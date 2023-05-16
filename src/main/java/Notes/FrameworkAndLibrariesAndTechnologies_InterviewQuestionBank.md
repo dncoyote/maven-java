@@ -52,17 +52,17 @@
 ### **ControllerAdvice**
  - `@ControllerAdvice` is an annotation used to define global exception handlers that are applied to all controllers in an application.
  - When an exception occurs during the execution of a controller method, Spring Boot looks for an appropriate exception handler to handle the exception. If no specific exception handler is found, Spring Boot looks for a global exception handler defined using the `@ControllerAdvice` annotation.
- -This can be useful for handling common exceptions such as NullPointerException, IllegalArgumentException, or IllegalStateException.  
-  ```
-  @ControllerAdvice
-  public class GlobalExceptionHandler {
+ - This can be useful for handling common exceptions such as NullPointerException, IllegalArgumentException, or IllegalStateException.  
+    ```
+    @ControllerAdvice
+    public class GlobalExceptionHandler {
 
-    @ExceptionHandler(value = {NullPointerException.class, IllegalArgumentException.class})
-    public ResponseEntity<Object> handleException(Exception ex) {
-        return new ResponseEntity<>("An error occurred: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+      @ExceptionHandler(value = {NullPointerException.class, IllegalArgumentException.class})
+      public ResponseEntity<Object> handleException(Exception ex) {
+          return new ResponseEntity<>("An error occurred: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+      }
     }
-}
-  ```
+    ```
 ---
 
 ### **Spring Stereotype annotation**
@@ -87,6 +87,17 @@
 
 ---
 
+### **Hibernate Caches**
+ - Hibernate provides several caching mechanisms to improve the performance of database operations. These caching mechanisms help reduce the number of trips to the database and minimize the time required to fetch or store data
+    - First-level Cache (Session Cache): Also known as the session cache, it is the default and most basic cache provided by Hibernate. It operates at the session level and stores entities and their associated data within the context of a single Hibernate session. It helps in reducing database round trips by caching and reusing the retrieved entities during the session.
+
+    - Second-level Cache: The second-level cache is a shared cache that operates at the session factory level. It caches objects across multiple sessions, allowing data to be shared among different sessions and reducing the need for repeated database queries. Hibernate supports various second-level cache providers, such as Ehcache, Infinispan, Hazelcast, and more.
+
+    - Query Cache: The query cache is used to cache the results of queries. When enabled, the query results are stored in the cache based on the query parameters. Subsequent executions of the same query with the same parameters can be served from the cache without hitting the database.
+
+    - Collection Cache: Hibernate also provides a cache for collections, such as one-to-many or many-to-many associations. It allows caching of the associated collection elements, improving the performance of fetching related entities.
+---
+
 ### **Hibernate Locks**
 
 ---
@@ -108,7 +119,42 @@
  - When a Spring Boot application starts up, the Spring framework scans the project for classes that are annotated with @Component, @Service, @Controller, @Repository, or @Configuration. These annotations indicate that a class should be treated as a bean, and Spring creates an instance of the class and registers it in its container.
 ---
 
+### **Controller v/s RestController**
+| Controller  | RestController |
+|----------|----------|
+| `@Controller` annotation is used to define a controller class in Spring MVC. Controllers are primarily used for handling traditional web-based applications where the response can be in various forms, such as HTML pages, JSON/XML responses, file downloads, etc.  |`@RestController` annotation is a specialized version of the Controller annotation that combines @Controller and @ResponseBody. It is used to define controllers specifically for building RESTful APIs where the response is typically in JSON/XML format. The @ResponseBody annotation is applied to the methods within a RestController to indicate that the return value should be serialized directly into the response body. |
+---
+
 ### **Profile in Spring Boot**
+- Profiles are a feature that allows you to configure and customize your application based on different environments or deployment scenarios. Profiles provide a way to have multiple sets of configuration properties and beans within a single codebase, enabling you to switch between different configurations easily.
+---
+
+### **Qualifiers in Spring Boot**
+ - Qualifiers are used to differentiate between beans of the same type when multiple instances of a bean exist in the application context.
+    ```
+    @Component
+    @Qualifier("fooQualifier")
+    public class FooBean implements MyInterface {
+        // ...
+    }
+
+    @Component
+    @Qualifier("barQualifier")
+    public class BarBean implements MyInterface {
+        // ...
+    }
+    ------------
+    @Service
+    public class MyService {
+
+    private final MyInterface myInterface;
+
+    public MyService(@Qualifier("fooQualifier") MyInterface myInterface) {
+        this.myInterface = myInterface;
+    }
+    }
+
+    ```
 
 ---
 
@@ -177,10 +223,6 @@
 ---
 
 ### **Redis**
-
----
-
-### **qualifier**
 
 ---
 
