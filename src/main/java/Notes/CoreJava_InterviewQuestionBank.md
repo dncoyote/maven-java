@@ -1,25 +1,25 @@
 # **Core Java: Interview Question Bank**
 
 # Table of Contents
-1. [public static void main](#public-static-void-main)
-2. [Primitive](#primitive)
-3. [Constructors](#Constructors)
-4. [super](#super)
-5. [String](#String)
-6. [String v/s StringBuilder v/s StringBuffer](#string-vs-string-builder-vs-string-buffer)
-7. [static](#static)
-8. [static v/s instance](#static-vs-instance)
-9. [final](#final)
-10. [finally](#finally)
-11. [finalize()](#finalize)
-12. [Exception handling](#exception-handling)
-13. [Custom Exception](#custom-exception)
-14. [Throw](#throw)
-15. [Throws](#throws)
-16. [Wrapper Classes](#wrapper-classes)
-17. [Collection](#collection)
-18. [Collection v/s Collections](#collection-vs-collections)
-19. [List](#list)
+1. [**public static void main**](#public-static-void-main)
+2. [**Primitive**](#primitive)
+3. [**Constructors**](#Constructors)
+4. [**super**](#super)
+5. [**String**](#String)
+6. [**String v/s StringBuilder v/s StringBuffer**](#string-vs-string-builder-vs-string-buffer)
+7. [**static**](#static)
+8. [**static v/s instance**](#static-vs-instance)
+9. [**final**](#final)
+10. [**finally**](#finally)
+11. [**finalize()**](#finalize)
+12. [**Exception handling**](#exception-handling)
+13. [**Custom Exception**](#custom-exception)
+14. [**Throw**](#throw)
+15. [**Throws**](#throws)
+16. [**Wrapper Classes**](#wrapper-classes)
+17. [**Collection**](#collection)
+18. [**Collection v/s Collections**](#collection-vs-collections)
+19. [**List**](#list)
 20. [**Set**](#set)
 21. [**Map**](#map)
 22. [**Queue**](#queue)
@@ -114,6 +114,25 @@
 ### **String**
  - `String` is a class that represents a sequence of characters. Strings are widely used in Java programming, and they are used to store and manipulate text-based data such as names, addresses, and other textual information.
  - `String` in Java are reference types, which means that they are actually objects that contain a reference to a memory location where the string's characters are stored. This is in contrast to primitive types (like int or char), which are not objects and are stored directly in memory.
+---
+
+### **`==` operator v/s `equals()` method**
+| `==` operator  | `equals()` method |
+|----------|----------|
+| The `==` operator compares the references of two objects, including strings. It checks if two objects refer to the same memory location, i.e., if they are the exact same object. | The `equals()` method is a method defined in the Object class and overridden in the String class to compare the content of two objects for equality. |
+| When used to compare strings, the == operator checks if two string variables refer to the same instance of the string object, not necessarily if their content is the same. | When used to compare strings, the equals() method checks if the content (sequence of characters) of two string objects is the same. |
+
+    ```
+    String str1 = "Hello";
+    String str2 = "Hello";
+    String str3 = new String("Hello");
+
+    System.out.println(str1 == str2);   // true - both variables refer to the same "Hello" object in the string pool
+    System.out.println(str1 == str3);   // false - str3 refers to a different object created with the 'new' keyword
+
+    System.out.println(str1.equals(str2));   // true - both strings have the same content
+    System.out.println(str1.equals(str3));   // true - both strings have the same content
+    ```
 ---
 
 ### **String v/s String Builder v/s String Buffer**
@@ -245,6 +264,15 @@
          System.out.println("Done!");
     }
     ```
+
+---
+
+### **ClassNotFoundException v/s NoClassDefFoundError**
+ | ClassNotFoundException  | NoClassDefFoundError |
+|----------|----------|
+| `ClassNotFoundException` is a <u>checked exception</u> that occurs at runtime when the Java ClassLoader is unable to find a class at the time of dynamic class loading. | `NoClassDefFoundError` is an <u>error</u> (not an exception) that occurs when a class that was present during compilation is no longer found at runtime. |
+| This exception is typically thrown when you attempt to load a class using methods like Class.forName() or ClassLoader.loadClass(), and the specified class cannot be found in the classpath. | This error typically occurs when the JVM tries to load a class that was available during compilation but is missing during runtime execution. |
+| It often indicates a missing or incorrect class name or a missing dependency that the class depends on. | It indicates that the class definition was found during compilation, but at runtime, the class file is not present or cannot be located. |
 
 ---
 
@@ -532,7 +560,37 @@
 ---
 
 ### **Predicate**
+ - `Predicate` is a functional interface introduced in the Java 8 release as part of the java.util.function package. It represents a single argument function that takes an input and returns a boolean value, indicating whether the input satisfies a certain condition. 
+ - The Predicate interface is commonly used for filtering or testing elements based on a specific criterion.
+    ```
+    public class PredicateExample {
+    public static void main(String[] args) {
+        List<String> words = Arrays.asList("apple", "banana", "orange", "grape", "watermelon");
 
+        // Create a Predicate to filter words with length greater than 5
+        Predicate<String> lengthGreaterThan5 = word -> word.length() > 5;
+
+        // Filter the list based on the Predicate
+        List<String> filteredList = filterList(words, lengthGreaterThan5);
+
+        System.out.println("Filtered List: " + filteredList); // [banana, orange, watermelon]
+    }
+
+    public static List<String> filterList(List<String> list, Predicate<String> predicate) {
+        // Create a new list to store the filtered elements
+        List<String> filteredList = new ArrayList<>();
+
+        // Iterate over the list and apply the Predicate to each element
+        for (String element : list) {
+            if (predicate.test(element)) {
+                filteredList.add(element);
+            }
+        }
+
+        return filteredList;
+    }
+    }
+    ```
 ---
 
 ### **StreamAPI**
@@ -547,9 +605,25 @@
 
     // filter the stream to only include elements starting with "a"
     Stream<String> filteredStream = stream.filter(s -> s.startsWith("a"));
+    //find element using filter
+    String firstLongFruit = fruits.stream()
+                .filter(fruit -> fruit.length() > 6)
+                .findFirst()
+                .orElse("No long fruit found");
 
     // map the filtered stream to uppercase strings
     Stream<String> mappedStream = filteredStream.map(String::toUpperCase);
+    // Map elements
+    List<Integer> fruitLengths = fruits.stream()
+            .map(String::length)
+            .toList();
+    System.out.println("Fruit lengths: " + fruitLengths); // Output: [5, 6, 6, 4, 10]
+
+    //Reduce elements
+    int sum = fruits.stream()
+            .mapToInt(String::length)
+            .sum();
+    System.out.println("Total length: " + sum); // Output: 31
 
     // print the mapped stream to the console
     mappedStream.forEach(System.out::println);
