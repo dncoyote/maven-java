@@ -19,6 +19,10 @@ public class ArraysDemo {
         }
         System.out.println("Array printing using streams: ");
         Arrays.stream(colors).forEach(System.out::println);
+
+        for(int i=0;i<colors.length;i++){
+            System.out.println(colors[i]);
+        }
     }
 
 }
