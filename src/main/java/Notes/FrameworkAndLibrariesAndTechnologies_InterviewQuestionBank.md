@@ -68,11 +68,17 @@
 ### **Spring Stereotype annotation**
 ---
 
+### **OAuth 2.0**
+---
+
+### **OIDC**
+---
+
 ### **IAM**
 ---
 
 ### **Keycloak**
-
+- Keycloak is an open-source identity and access management (IAM) solution that provides authentication, authorization, and single sign-on capabilities for web applications, mobile apps, and services. It allows organizations to secure their applications and APIs by managing user identities, enforcing access policies, and handling user authentication and authorization.
 ---
 
 ### **JPA**

@@ -6,6 +6,7 @@
 3. [**Constructors**](#Constructors)
 4. [**super**](#super)
 5. [**String**](#String)
+6. [**Equals operator v/s equals() method**] 
 6. [**String v/s StringBuilder v/s StringBuffer**](#string-vs-string-builder-vs-string-buffer)
 7. [**static**](#static)
 8. [**static v/s instance**](#static-vs-instance)
@@ -15,7 +16,7 @@
 12. [**Exception handling**](#exception-handling)
 13. [**Custom Exception**](#custom-exception)
 14. [**Throw**](#throw)
-15. [**Throws**](#throws)
+15. [**Throws**](#throws)Compile-time Polymorphism (Method Overloading)Compile-time Polymorphism (Method Overloading)
 16. [**Wrapper Classes**](#wrapper-classes)
 17. [**Collection**](#collection)
 18. [**Collection v/s Collections**](#collection-vs-collections)
@@ -60,6 +61,22 @@
    - Return type of method.
  - String[] arg
    - Stores java command line arguments.     
+
+   ```
+   public class HelloWorld {
+    public static void main(String[] args) {
+		  System.out.println("Hello World!");
+        }
+    }
+
+    *****************
+    // Java 21
+   void main(){
+    System.out.println("Hello World!");
+   } 
+   ```
+
+
 ---
 
 ### **Primitive**
@@ -73,6 +90,18 @@
    - float
    - double
    - char
+  - Null cannot be assigned to a primitive data-type.
+  - They hold actual data and not the reference.
+  - They are immutable.
+
+    ```
+    int age = 30;
+    double price = 49.99;
+    char grade = 'A';
+    boolean isJavaFun = true;
+
+    ```
+
 ---
 
 ### **Constructors**
@@ -95,8 +124,40 @@
 
     ```
 
-    Overloading Constructors:
-    
+    <u>Overloading Constructors:</u>
+    - Refers to the practice of defining multiple constructors for a class with different parameter lists. Java allows you to have more than one constructor in a class, as long as they have different parameter lists.
+
+    ```
+
+    public class Circle {
+        private double radius;
+
+        public Circle() {
+            this.radius = 0;
+        }
+        public Circle(double radius) {
+            this.radius = radius;
+        }
+    }
+
+    ```
+
+    <u>Default Constructor:</u>
+    - A default constructor in Java is a constructor that is automatically provided by the Java compiler if a class does not explicitly define any constructors. It is also known as a no-argument constructor or the default no-arg constructor.
+
+    ```
+
+    public class Circle {
+        private double radius;
+
+    public static void main(String[] args){
+         MyClass obj = new MyClass(); 
+      }
+       
+    }
+
+    ```
+
 ---
 
 ### **super**
@@ -114,6 +175,7 @@
 ### **String**
  - `String` is a class that represents a sequence of characters. Strings are widely used in Java programming, and they are used to store and manipulate text-based data such as names, addresses, and other textual information.
  - `String` in Java are reference types, which means that they are actually objects that contain a reference to a memory location where the string's characters are stored. This is in contrast to primitive types (like int or char), which are not objects and are stored directly in memory.
+ - <u>Immutable</u>- Java strings are immutable, meaning their content cannot be changed after they are created. When you perform operations on a string that appear to modify it, such as concatenation or substring extraction, a new string is created with the modified content. This property makes `String` thread safe.
 ---
 
 ### **`==` operator v/s `equals()` method**
