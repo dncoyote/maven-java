@@ -268,6 +268,7 @@ Counter c1 = new Counter();
 Counter c2 = new Counter();
 System.out.println(Counter.getCount()); // Prints 2
 ```
+
 - Static methods: They belong to the class rather than to any instance of the class. They can be called without creating an object of the class and can access only static variables and methods of the class.
 
 ```
@@ -329,6 +330,7 @@ System.out.println(person.getFullAddress()); // Prints "123 Main St, Anytown, CA
 ```
 
 - In Java `static` keyword is used in creating constants, utility methods, and factory methods.
+
 ---
 
 ### **static v/s instance**
@@ -371,6 +373,7 @@ System.out.println(person.getFullAddress()); // Prints "123 Main St, Anytown, CA
 - It is a way to gracefully recover from errors and prevent the program from crashing.
 - Java provides a built-in mechanism to handle exceptions using the try-catch block.
 - The try block contains the code that may cause an exception, and the catch block handles the exception if it occurs.
+
 ```
 
 try {
@@ -402,6 +405,7 @@ System.out.println("Done!");
 
 - Custom exceptions can be created by extending the Exception class or one of its subclasses like RuntimeException.
 - By creating custom exceptions, developers can define their own exceptions for specific use cases, improving code clarity and allowing for more targeted exception handling.
+
 ```
 
 public class CustomException extends Exception {
@@ -417,6 +421,7 @@ super(message);
 ### **Throw**
 
 - `throw` is a keyword used to throw an exception explicitly. It is used to throw a custom or predefined exception explicitly within a method or block of code.
+
 ```
 
 public void divide(int a, int b) {
@@ -435,6 +440,7 @@ System.out.println("Result: " + result);
 
 - `throws` keyword is used in method signatures to declare that a method might throw certain types of checked exceptions.
 - When a method declares that it throws an exception, it means that the method might encounter a situation that could cause an exception to be thrown, and that the method is not able to handle that exception on its own. Instead, the method declares that it might throw the exception, and it is the responsibility of the calling code to handle the exception.
+
 ```
 
 public void readFromFile(String filename) throws IOException {
@@ -455,9 +461,35 @@ public void readFromFile(String filename) throws IOException {
 
 ### **Collection**
 
+- "Collection" refers to a framework or a group of classes and interfaces that are used to store, manipulate, and manage groups of objects.
+- Collections provide a convenient and efficient way to work with groups of data, such as lists of items, sets of unique elements, and mappings of key-value pairs.
+- Interfaces in Collection
+
+  - `Collection`: The root interface for all collections. It defines common methods like add, remove, contains, and iterator.
+
+  - `List`: Represents an ordered collection of elements with duplicate values. Class implementations include ArrayList and LinkedList.
+
+  - `Set`: Represents an unordered collection of unique elements. Class implementations include HashSet, LinkedHashSet, and TreeSet.
+
+  - `Map`: Represents a collection of key-value pairs, where each key is associated with a unique value. Class implementations include HashMap, LinkedHashMap, and TreeMap.
+  - `Queue`: Represents a data structure for managing elements in a First-In-First-Out (FIFO) order, where elements are processed in the order they are added. Class implementations include PriorityQueue, ArrayDeque, and LinkedList.
+
 ---
 
 ### **Collection v/s Collections**
+
+| Collection                                                                                                                                                                                                                       | Collections                                                                                                                                                                                                                                                                                                              |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Collection` is an interface that is part of the Java Collections Framework. It's a fundamental interface that represents a group of objects, or elements, and provides a common set of methods for working with these elements. | `Collections` is a utility class in the java.util package. It contains a set of static methods that operate on or provide utility for objects that implement the Collection interface. These methods are used for common collection-related tasks, such as sorting, searching, shuffling, and synchronizing collections. |
+
+```
+Collection<Integer> myCollection = new ArrayList<>();
+myCollection.add(3);
+myCollection.add(1);
+myCollection.add(7);
+
+Collections.sort(myCollection);
+```
 
 ---
 
@@ -505,6 +537,12 @@ public void readFromFile(String filename) throws IOException {
 ---
 
 ### **Which collection should we use during multithreading?**
+
+- ConcurrentHashMap
+- ConcurrentLinkedQueue
+- CopyOnWriteArrayList
+- Synchronized Collections
+  - You can make existing non-thread-safe collections thread-safe by wrapping them using Collections.synchronizedCollection, Collections.synchronizedList, Collections.synchronizedSet, etc.
 
 ---
 
@@ -732,6 +770,7 @@ Animal cat1 = new Cat("Fluffy");
 
 - Default method
 - It is a method defined within an interface that provides a default implementation
+
 ```
 
 public interface MyInterface {
@@ -741,8 +780,10 @@ System.out.println("This is a default method.");
 }
 
 ```
+
 - Default access modifier
 - When a class, method, or variable is declared with no access modifier, it has "default" or "package-private" access. This means that it can only be accessed by classes within the same package.
+
 ```
 
 class MyClass {
@@ -840,6 +881,7 @@ mappedStream.forEach(System.out::println);
 
 - Lambda Expression provide a concise way to express functionality that can be passed around like data.
 - A lambda expression is a compact piece of code that is used to represent an anonymous function (a function without a name) that can be passed as an argument to a method or stored as a variable. It consists of parameters, the arrow operator, and a body.
+
 ```
 
 public class HelloWorld {
@@ -923,5 +965,7 @@ private transient String myTransientString
 - Another change in Java 11 is the introduction of the Epsilon garbage collector. The Epsilon garbage collector is a no-op garbage collector that is intended for use in scenarios where the application does not need any garbage collection. It is designed to eliminate the overhead of garbage collection and improve the performance of applications that do not generate garbage.
 
 ---
+
 ```
-````
+
+```
