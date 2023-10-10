@@ -125,6 +125,16 @@
  - It provides a structured approach to handle and process web requests and promotes the separation of concerns by routing requests to appropriate handlers, integrating with view technologies, and supporting various web application features through configuration and customization.
 ---
 
+### **Dependency Injection**
+- Dependency Injection (DI) is a design pattern and a software development technique used in object-oriented programming to achieve Inversion of Control (IoC) and enhance the modularity, testability, and maintainability of software applications.
+- DI involves providing an object with the dependencies it needs (i.e., other objects or services) rather than having it create or manage those dependencies itself. This inversion of control shifts the responsibility of managing dependencies from the object to an external entity (usually a DI container or framework).
+---
+
+### **Inversion of Control**
+- Inversion of Control (IoC) is a design principle and architectural concept in software development where the control over the flow of a program's execution is shifted from the program itself to an external framework or container.
+- It is a way of inverting the traditional flow of control in a software application.
+---
+
 ### **Spring Boot**
 
 ---
@@ -182,7 +192,7 @@
 ---
 
 ### **API Gateway**
-
+- API Gateway is a server or service that acts as an entry point for a collection of microservices or backend services in a distributed computing environment.
 ---
 
 ### **Load Balancing in API Gateway**
@@ -218,14 +228,11 @@
 ---
 
 ### **Queueing Libraries**
-
+- Queueing libraries, also known as message queuing libraries or message broker libraries, are software components or frameworks that provide functionalities for implementing message queues, message brokering, and asynchronous communication patterns in distributed systems. 
+- These libraries play a crucial role in building scalable, resilient, and decoupled architectures by enabling various components of a system to communicate asynchronously through messages
 ---
 
 ### **Apache Kafka**
-
----
-
-### **Message Queueing**
 
 ---
 
@@ -238,7 +245,7 @@
 ---
 
 ### **Redis**
-
+- Redis is an open-source, in-memory data store and caching system that can be used as a database, message broker, and cache. 
 ---
 
 ### **hystrix**
@@ -265,20 +272,16 @@
 
 ---
 
-### **REST**
-
----
-
 ### **HTTP Requests**
 
 ---
 
 ### **Lazy Loading**
-
+- Lazy loading is a technique in which related data is loaded from the database only when it is explicitly requested
 ---
 
 ### **Eager Loading**
-
+- Eager Loading is the strategy of fetching and loading related data from the database in a single query, along with the main object, at the time the main object is retrieved.
 ---
 
 ### **Singleton** ###
@@ -320,7 +323,17 @@
 ---
 
 ### **SOLID principles**
-
+- SOLID is an acronym representing a set of five design principles that are widely used in object-oriented programming to create maintainable, flexible, and understandable software
+- They are are considered fundamental guidelines for writing clean and well-structured code.
+- Single Responsibility Principle (SRP)
+  - A class should have only one reason to change or only one responsibility
+- Open/Closed Principle (OCP)
+ - Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification
+- Liskov Substitution Principle (LSP)
+  - Derived classes should adhere to the contract established by their base classes and should not change the expected behavior.
+- Interface Segregation Principle (ISP)
+- Dependency Inversion Principle (DIP)
+  - High-level modules should not depend on low-level modules. Both should depend on abstractions.
 ---
 
 ### **Design Patterns**
@@ -328,5 +341,9 @@
 ---
 
 ### **Categories of Design Patterns**
-
+- Creational Patterns
+- Structural Patterns
+- Behavioral Patterns
+- Architectural Patterns
+- Concurrency Patterns
 ---

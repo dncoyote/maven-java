@@ -223,7 +223,7 @@ System.out.println(str1.equals(str3));   // true - both strings have the same co
 
 ---
 
-### String str = "Hello" v/s String str = new String("Hello")
+### `String str = "Hello"` v/s `String str = new String("Hello")`
 
 | String str = "Hello"                                               | String str = new String("Hello")                                                                                         |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
@@ -377,14 +377,14 @@ System.out.println(person.getFullAddress()); // Prints "123 Main St, Anytown, CA
 ```
 
 try {
-// Code that may cause an exception
-int result = 10 / 0;
+    // Code that may cause an exception
+    int result = 10 / 0;
 } catch (ArithmeticException e) {
-// Exception handling code
-System.out.println("An exception occurred: " + e.getMessage());
+    // Exception handling code
+    System.out.println("An exception occurred: " + e.getMessage());
 } finally {
-// Code that will always be executed
-System.out.println("Done!");
+    // Code that will always be executed
+    System.out.println("Done!");
 }
 
 ```
@@ -409,9 +409,9 @@ System.out.println("Done!");
 ```
 
 public class CustomException extends Exception {
-public CustomException(String message) {
-super(message);
-}
+    public CustomException(String message) {
+        super(message);
+    }
 }
 
 ```
@@ -425,11 +425,11 @@ super(message);
 ```
 
 public void divide(int a, int b) {
-if (b == 0) {
-throw new ArithmeticException("Division by zero is not allowed");
-}
-int result = a / b;
-System.out.println("Result: " + result);
+    if (b == 0) {
+        throw new ArithmeticException("Division by zero is not allowed");
+    }
+    int result = a / b;
+    System.out.println("Result: " + result);
 }
 
 ```
@@ -494,19 +494,35 @@ Collections.sort(myCollection);
 ---
 
 ### **List**
-
+- List is an interface that represents an ordered collection of elements. 
+- Elements in a List can be accessed by their index, and a List can contain duplicate elements. 
+- List interface implementations
+    - ArrayList
+    - LinkedList
+    - Vector
+    - CopyOnWriteArrayList
 ---
 
 ### **Set**
-
----
-
-### **Treeset**
+- Set is an interface in the Java Collections Framework that represents a collection of unique elements, where each element can occur at most once. 
+- Set implementations provide a way to store, retrieve, and manipulate elements without duplicates.
+- Set interface implementations
+    - HashSet 
+    - LinkedHashSet 
+    - TreeSet 
+    - EnumSet 
 
 ---
 
 ### **Map**
-
+- Map is an interface in the Java Collections Framework that represents a collection of key-value pairs. 
+- Each key in a Map is associated with a corresponding value, and you can use the key to retrieve its associated value. 
+- Map implementations provide efficient means to store, retrieve, and manipulate key-value pairs.
+- Map interface implementations
+    - HashMap 
+    - TreeMap 
+    - LinkedHashMap 
+    - HashTable 
 ---
 
 ### **Concurrent Hashmap**
@@ -533,7 +549,34 @@ Collections.sort(myCollection);
 ---
 
 ### **Comparator**
+- Comparator is an interface in Java is an interface that defines a way to compare two objects for ordering or sorting purposes. It allows you to define custom comparison logic for objects that may not have a natural ordering or for cases where you want to sort objects based on criteria other than their natural order.
 
+```
+Comparator<MonthlyStatement> comparator = null;
+
+        switch (sortBy.toLowerCase()) {
+            case "category":
+                comparator = Comparator.comparing(MonthlyStatement::getCategory);
+                break;
+            case "type":
+                comparator = Comparator.comparing(MonthlyStatement::getType);
+                break;
+            case "amount":
+                comparator = Comparator.comparing(MonthlyStatement::getAmount);
+                break;
+            case "date":
+                comparator = Comparator.comparing(MonthlyStatement::getDate);
+                break;
+            default:
+                comparator = Comparator.comparing(MonthlyStatement::getDate);
+                break;
+        }
+
+        if (sortOrder.equalsIgnoreCase("desc")) {
+            comparator.reversed();
+        }
+        Collections.sort(expenses, comparator);
+```
 ---
 
 ### **Which collection should we use during multithreading?**
@@ -547,7 +590,40 @@ Collections.sort(myCollection);
 ---
 
 ### **Generics**
+- Generics allows you to write classes, methods, and interfaces in a way that can work with different data types while providing compile-time type safety. Generics enable you to create reusable and type-safe code by parameterizing types.
 
+```
+class Box<T> {
+    private T value;
+
+    public Box(T value) {
+        this.value = value;
+    }
+
+    public T getValue() {
+        return value;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a Box to hold an Integer
+        Box<Integer> integerBox = new Box<>(42);
+        int intValue = integerBox.getValue();
+        System.out.println("Integer Value: " + intValue);
+
+        // Create a Box to hold a String
+        Box<String> stringBox = new Box<>("Hello, Generics!");
+        String stringValue = stringBox.getValue();
+        System.out.println("String Value: " + stringValue);
+
+        // Create a Box to hold a Double
+        Box<Double> doubleBox = new Box<>(3.14159);
+        double doubleValue = doubleBox.getValue();
+        System.out.println("Double Value: " + doubleValue);
+    }
+}
+```
 ---
 
 ### **Interface**
@@ -586,25 +662,25 @@ Collections.sort(myCollection);
 ```
 
 public class MyTask implements Runnable {
-private String message;
+    private String message;
 
-public MyTask(String message) {
-this.message = message;
-}
+    public MyTask(String message) {
+        this.message = message;
+    }
 
-public void run() {
-System.out.println(message);
-}
+    public void run() {
+        System.out.println(message);
+    }
 }
 
 ---
 
 public class Main {
-public static void main(String[] args) {
-MyTask task = new MyTask("Hello, world!");
-Thread thread = new Thread(task);
-thread.start();
-}
+    public static void main(String[] args) {
+        MyTask task = new MyTask("Hello, world!");
+        Thread thread = new Thread(task);
+        thread.start();
+    }
 }
 
 ```
@@ -666,17 +742,18 @@ thread.start();
 ```
 
 interface MyNewInterface {
-void doSomething();
+    void doSomething();
 }
 
 public class AnonymousClassDemo {
-public static void main(String[] args) {
-// Creating an anonymous class that implements MyInterface
-MyNewInterface myObj = new MyNewInterface() {
-@Override
-public void doSomething() {
-System.out.println("Anonymous class implementing doSomething()");
-}
+    public static void main(String[] args) {
+        // Creating an anonymous class that implements MyInterface
+        MyNewInterface myObj = new MyNewInterface() {
+
+        @Override
+        public void doSomething() {
+            System.out.println("Anonymous class implementing doSomething()");
+        }
 };
 
           // Invoking the method of the anonymous class
@@ -711,8 +788,8 @@ protected String name;
 }
 
 class Cat extends Animal {
-public Cat(String name) {
-super(name);
+    public Cat(String name) {
+    super(name);
 }
 
       public void speak() {
@@ -722,9 +799,9 @@ super(name);
 }
 
 public class Main {
-public static void main(String[] args) {
-Animal animal1 = new Animal("Generic Animal");
-Animal cat1 = new Cat("Fluffy");
+    public static void main(String[] args) {
+        Animal animal1 = new Animal("Generic Animal");
+        Animal cat1 = new Cat("Fluffy");
 
           animal1.speak(); // Output: I am an animal.
           cat1.speak(); // Output: I am a cat.
@@ -775,9 +852,9 @@ Animal cat1 = new Cat("Fluffy");
 ```
 
 public interface MyInterface {
-default void myMethod() {
-System.out.println("This is a default method.");
-}
+    default void myMethod() {
+        System.out.println("This is a default method.");
+    }
 }
 
 ```
@@ -788,7 +865,7 @@ System.out.println("This is a default method.");
 ```
 
 class MyClass {
-int myVariable; // default access modifier
+    int myVariable; // default access modifier
 }
 
 ```
@@ -829,7 +906,7 @@ List<String> filteredList = new ArrayList<>();
 
       return filteredList;
 
-}
+    }
 }
 
 ```
@@ -886,51 +963,51 @@ mappedStream.forEach(System.out::println);
 ```
 
 public class HelloWorld {
-public static void main(String[] args) {
-Runnable hello = () -> System.out.println("Hello, world!");
-hello.run();
-}
-}
-
----
-
-public class HelloWorld {
-public static void main(String[] args) {
-IntBinaryOperator add = (a, b) -> a + b;
-int result = add.applyAsInt(3, 5);
-System.out.println("3 + 5 = " + result);
-}
+    public static void main(String[] args) {
+        Runnable hello = () -> System.out.println("Hello, world!");
+        hello.run();
+    }
 }
 
 ---
 
 public class HelloWorld {
-public static void main(String[] args) {
-Function<String, Integer> length = s -> s.length();
-int stringLength = length.apply("Hello, world!");
-System.out.println("Length of string: " + stringLength);
-}
-}
-
----
-
-public class HelloWorld {
-public static void main(String[] args) {
-List<String> strings = Arrays.asList("Hello", "world", "!");
-List<Integer> lengths = strings.stream()
-.map(s -> s.length())
-.collect(Collectors.toList());
-System.out.println("Lengths: " + lengths);
-}
+    public static void main(String[] args) {
+        IntBinaryOperator add = (a, b) -> a + b;
+        int result = add.applyAsInt(3, 5);
+        System.out.println("3 + 5 = " + result);
+    }
 }
 
 ---
 
 public class HelloWorld {
-public static void main(String[] args) {
-Runnable hello = System.out::println;
-hello.run("Hello, world!");
+    public static void main(String[] args) {
+        Function<String, Integer> length = s -> s.length();
+        int stringLength = length.apply("Hello, world!");
+        System.out.println("Length of string: " + stringLength);
+    }
 }
+
+---
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        List<String> strings = Arrays.asList("Hello", "world", "!");
+        List<Integer> lengths = strings.stream()
+        .map(s -> s.length())
+        .collect(Collectors.toList());
+        System.out.println("Lengths: " + lengths);
+    }
+}
+
+---
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        Runnable hello = System.out::println;
+        hello.run("Hello, world!");
+    }
 }
 
 ```
