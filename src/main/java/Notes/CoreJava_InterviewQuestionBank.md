@@ -563,6 +563,7 @@ Collections.sort(myCollection);
 ### **Abstract Class**
 
 - An abstract class is a class that cannot be instantiated directly, but can be extended by other classes. It serves as a blueprint for other classes to derive from and provides common functionality that can be inherited by its subclasses.
+- An abstract class cannot be instantiated, meaning we cannot create objects of it, but we can use it as a template for creating other classes that extend it.
 
 ---
 
@@ -940,13 +941,47 @@ hello.run("Hello, world!");
 
 - `transient` keyword is used to mark a class variable as not being serialized during object serialization. Serialization is the process of converting an object into a stream of bytes, so that it can be saved to a file or sent over a network.
 - When a variable is marked as transient, its value will not be saved as part of the serialization process. Instead, when the object is deserialized (i.e., converted back from a stream of bytes into an object), the transient variable will be set to its default value (i.e., null for object types, 0 for numeric types, and false for boolean types).
+- Some fields of an object may not be suitable for serialization. For example, fields that contain temporary or sensitive data, or fields that are derived from other fields and can be calculated when needed, may not need to be serialized.
 
 ```
-
-private transient String myTransientString
-
+class MyClass implements Serializable {
+    private transient String myTransientString;
+    private String nonTransientField;
+}
 ```
 
+---
+
+### **Enum**
+- Enums are used to define collections of values that are treated as distinct types.
+
+```
+enum AnimalType {
+    MAMMAL,
+    REPTILE,
+    BIRD,
+    AMPHIBIAN,
+    FISH
+}
+
+class Animal {
+    private String name;
+    private AnimalType type;
+
+    public Animal(String name, AnimalType type) {
+        this.name = name;
+        this.type = type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public AnimalType getType() {
+        return type;
+    }
+}
+```
 ---
 
 ### **Garbage Collection**
@@ -965,7 +1000,3 @@ private transient String myTransientString
 - Another change in Java 11 is the introduction of the Epsilon garbage collector. The Epsilon garbage collector is a no-op garbage collector that is intended for use in scenarios where the application does not need any garbage collection. It is designed to eliminate the overhead of garbage collection and improve the performance of applications that do not generate garbage.
 
 ---
-
-```
-
-```

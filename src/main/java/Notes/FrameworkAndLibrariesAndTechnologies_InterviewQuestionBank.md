@@ -20,6 +20,10 @@
 - A REST API (Representational State Transfer Application Programming Interface) is a type of web API that uses HTTP requests to perform operations on data.
 ---
 
+### **Authentication v/s Authorization**
+- Authentication : Authentication is the process of verifying the identity of a user, system, or entity to ensure they are who they claim to be.
+- Authorization : Authorization, also known as access control, is the process of determining what actions or operations an authenticated user or entity is allowed to perform on a system or resource.
+---
 ### **REST API Authentication**
 
 ---
@@ -277,6 +281,37 @@
 
 ---
 
+### **Singleton** ###
+- Singleton pattern is a creational design pattern that restricts the instantiation of a class to ensure that there is only one instance of that class in the entire application.
+- It guarantees that a class has only one instance and provides a global point of access to that instance
+- Singleton pattern is often used to control access to a resource, manage a shared resource, or maintain a single point of control, such as a configuration manager or a connection pool.
+- Key characteristics
+  - Private Constructor: The Singleton class has a private constructor, preventing external code from creating instances of the class directly.
+  - Private Static Instance: It typically contains a private static instance of the class itself.
+  - Public Static Method: It provides a public static method that allows access to the unique instance. This method creates the instance if it doesn't exist or returns the existing instance
+
+  ```
+  public class Singleton {
+    // Private static instance
+    private static Singleton instance;
+
+    // Private constructor
+    private Singleton() {
+        // Initialization code, if needed
+    }
+
+    // Public static method to get the instance
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+
+    // Other methods and properties of the Singleton
+  }
+  ```
+---
 ### **Ways to prevent SQL Injection**
  - <u>Use Parameterized Queries (Prepared Statements)</u>: Instead of concatenating user input directly into SQL statements, use parameterized queries or prepared statements provided by your programming language or database framework. 
  - <u>Input Validation and Sanitization</u>: Validate and sanitize user input to ensure it adheres to expected formats and patterns. Perform input validation both on the client side (using JavaScript or HTML input attributes) and on the server side.
