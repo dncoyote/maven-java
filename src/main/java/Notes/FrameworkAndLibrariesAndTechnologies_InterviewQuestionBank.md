@@ -340,6 +340,10 @@
 
 ---
 
+### **Microservices Architecture**
+- Event driven architecture
+---
+
 ### **Categories of Design Patterns**
 - Creational Patterns
 - Structural Patterns
