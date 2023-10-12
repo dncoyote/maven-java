@@ -576,14 +576,6 @@ public void readFromFile(String filename) throws IOException {
 
 ---
 
-### **Wrapper Classes**
-
-- Wrapper classes are classes that provide a way to use primitive data types as objects.
-- Wrapper classes provide several useful methods for working with primitive data types.
-- Each primitive data type has a corresponding wrapper class.
-
----
-
 ### **Collection**
 
 - "Collection" refers to a framework or a group of classes and interfaces that are used to store, manipulate, and manage groups of objects.
@@ -667,10 +659,6 @@ Collections.sort(myCollection);
 ---
 
 ### **Queue**
-
----
-
-### **Threads**
 
 ---
 
@@ -1160,6 +1148,19 @@ class MyClass implements Serializable {
     private String nonTransientField;
 }
 ```
+
+---
+
+### **volatile**
+
+- `volatile` keyword is used as a modifier for a variable to indicate that the variable's value may be changed by multiple threads simultaneously.
+- It ensures certain visibility and ordering guarantees for that variable's access.
+- Key properties
+
+  - Visibility: When a variable is declared as volatile, any read or write operation on that variable is guaranteed to be visible to all threads. This means that changes made by one thread to a volatile variable are immediately visible to other threads without the need for explicit synchronization.
+  - Atomicity: The volatile keyword guarantees atomic reads and writes for the variable. This ensures that, when a thread reads a volatile variable, it sees a complete value, and when a thread writes to a volatile variable, it writes the complete value without being interrupted by other threads.
+
+- It's important to note that volatile does not provide a general-purpose replacement for all synchronization mechanisms. It's primarily used for simple scenarios where variables are read and written independently and not involved in compound operations that need atomicity. For more complex synchronization requirements, other mechanisms like synchronized blocks or classes from the java.util.concurrent package are typically used.
 
 ---
 
