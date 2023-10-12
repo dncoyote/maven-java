@@ -159,11 +159,34 @@
 
 ---
 
+### **JDBC**
+
+JDBC (Java Database Connectivity) is a Java-based API (Application Programming Interface) for connecting and interacting with relational databases. It provides a standard interface for Java applications to connect to various relational database management systems (RDBMS) such as MySQL, PostgreSQL, Oracle, Microsoft SQL Server, and more. With JDBC, Java applications can perform database operations, including connecting to databases, executing SQL queries, and manipulating data.
+
+---
+
 ### **JPA**
+
+- JPA is a Java specification that defines a standard interface for object-relational mapping in Java applications.
+  It provides a set of standard annotations and APIs for mapping Java objects to database tables and performing database operations using Java objects.
 
 ---
 
 ### **Hibernate**
+
+- Hibernate is an open-source Java ORM framework that implements the JPA specification.
+- Dependency
+- @Entity
+- @Table
+- @Id
+- @Column
+- Mapping Annotations
+- SessionFactory
+- EntityManager
+- hibernate.cfg.xml v/s application.properties
+- JPQL
+- Criteria API
+- @Transactional
 
 ---
 
@@ -428,6 +451,9 @@
 
 ### **Design Patterns**
 
+- Design patterns are reusable and general solutions to common software design problems that occur during the development of software applications.
+- They are best practices or templates that help developers solve problems efficiently, make software more maintainable, and improve software architecture.
+
 ---
 
 ### **Singleton Pattern**
@@ -544,6 +570,18 @@
   }
 
   ```
+
+---
+
+### **Observer Pattern**
+
+- Defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+
+---
+
+### **MVC Pattern**
+
+- MVC (Model-View-Controller) Pattern: Separates the application logic into three interconnected components - Model (data), View (user interface), and Controller (handles user input).
 
 ---
 
