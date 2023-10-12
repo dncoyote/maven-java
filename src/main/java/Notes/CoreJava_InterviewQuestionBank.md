@@ -127,6 +127,39 @@
 
 ---
 
+### **Literals**
+
+- literal is a representation of a fixed value that is expressed in the source code of a program
+- Integer Literals: Used to represent whole numbers.
+  Example: int num = 42;
+
+- Floating-Point Literals: Used to represent decimal numbers.
+  Example: double pi = 3.14159;
+
+- Character Literals: Used to represent a single character enclosed in single quotes.
+  Example: char letter = 'A';
+
+- String Literals: Used to represent a sequence of characters enclosed in double quotes.
+  Example: String name = "John";
+
+- Boolean Literals: Used to represent boolean values (true or false).
+  Example: boolean isStudent = true;
+
+- Null Literal: Represents a special "null" value and is used to indicate that a reference does not refer to an object.
+  Example: String str = null;
+
+- Octal and Hexadecimal Literals: You can represent integers in octal (base 8) or hexadecimal (base 16) using prefixes.
+  Octal Example: int octalValue = 075; (Note the leading '0' indicating octal).
+  Hexadecimal Example: int hexValue = 0x1F; (Note the '0x' prefix indicating hexadecimal).
+
+- Binary Literals (Java 7 and later): You can represent integers in binary using the 0b or 0B prefix.
+  Example: int binaryValue = 0b1101;
+
+- Underscores in Numeric Literals (Java 7 and later): You can use underscores to improve the readability of numeric literals.
+  Example: long bigNumber = 1_000_000;
+
+---
+
 ### **Constructors**
 
 - Constructors in Java are special methods that are used to create objects of a class.
@@ -183,6 +216,57 @@ public static void main(String[] args){
 MyClass obj = new MyClass();
 }
 
+}
+
+```
+
+---
+
+### **Control-flow statements**
+
+- Conditional Statements:
+  - if: Executes a block of code if a condition is true.
+  - if-else: Executes one block of code if a condition is true and another block if it's false.
+  - else-if: Allows you to check multiple conditions in sequence.
+  - switch: Performs different actions based on the value of an expression.
+- Looping Statements:
+  - for: Repeats a block of code a specified number of times.
+  - while: Repeats a block of code as long as a condition is true.
+  - do-while: Repeats a block of code at least once and then as long as a condition is true.
+  - for-each (Enhanced for loop): Simplifies iterating over collections (arrays, lists, etc.).
+- Transfer Statements:
+  - break: Exits the nearest loop or switch statement.
+  - continue: Skips the current iteration of a loop and continues with the next.
+  - return: Exits a method, optionally returning a value.
+  - throw: Used for exception handling to raise an exception.
+- Exception Handling:
+  - try-catch: Used to catch and handle exceptions that occur within a try block.
+  - try-finally: Ensures a block of code (in the finally block) is executed regardless of whether an exception occurred.
+
+---
+
+### **Iterator**
+
+- Iterator is an interface that belongs to the Java Collections Framework. It provides a way to traverse or iterate over elements in a collection (such as a List, Set, or Map) without exposing the underlying data structure.
+- Iterators are commonly used to access and manipulate the elements in a collection, and they are especially useful when you need to sequentially process the elements.
+
+```
+public class IteratorExample {
+    public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+        names.add("Alice");
+        names.add("Bob");
+        names.add("Charlie");
+
+        // Get an iterator for the list
+        Iterator<String> iterator = names.iterator();
+
+        // Iterate over the list using the iterator
+        while (iterator.hasNext()) {
+            String name = iterator.next();
+            System.out.println(name);
+        }
+    }
 }
 
 ```
@@ -1149,5 +1233,53 @@ class Animal {
 - One of the major changes in Java 11 is the introduction of a new garbage collector called the Z Garbage Collector (ZGC).
 - ZGC is a low-latency garbage collector that can handle heaps ranging from a few hundred megabytes to several terabytes in size, with a maximum pause time of 10ms. It is designed to reduce the impact of garbage collection on the application's performance and improve overall throughput.
 - Another change in Java 11 is the introduction of the Epsilon garbage collector. The Epsilon garbage collector is a no-op garbage collector that is intended for use in scenarios where the application does not need any garbage collection. It is designed to eliminate the overhead of garbage collection and improve the performance of applications that do not generate garbage.
+
+---
+
+### **Threads**
+
+- Threads are a fundamental concept for concurrent programming.
+- Threads are lightweight processes within a Java application that allow it to perform multiple tasks concurrently.
+- You can create threads in Java by extending the Thread class or by implementing the Runnable interface.
+- Multithreading in Java refers to the concurrent execution of multiple threads within a single Java program.
+
+```
+class MyThread extends Thread {
+    public void run() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Thread " + Thread.currentThread().getId() + ": Message " + i);
+            try {
+                Thread.sleep(1000); // Sleep for 1 second
+            } catch (InterruptedException e) {
+                System.out.println("Thread " + Thread.currentThread().getId() + " interrupted.");
+            }
+        }
+    }
+}
+
+public class MultiThreadExample {
+    public static void main(String[] args) {
+        MyThread thread1 = new MyThread();
+        MyThread thread2 = new MyThread();
+
+        thread1.start();
+        thread2.start();
+    }
+}
+
+O/P
+---
+Thread 11: Message 0
+Thread 12: Message 0
+Thread 11: Message 1
+Thread 12: Message 1
+Thread 11: Message 2
+Thread 12: Message 2
+Thread 11: Message 3
+Thread 12: Message 3
+Thread 11: Message 4
+Thread 12: Message 4
+
+```
 
 ---
