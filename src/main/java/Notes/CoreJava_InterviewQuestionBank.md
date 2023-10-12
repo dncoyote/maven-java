@@ -2,6 +2,47 @@
 
 ---
 
+### **Java Virtual Machine Architecture**
+
+#### "Write Once, Run anywhere"
+
+- VM is a virtual representation of a physical computer
+- Compile Languages
+- Interpreted Languages
+- JVM Components
+  - Class Loader
+  - Runtime Data Area
+  - Execution Engine
+
+#### Class Loader
+
+- Loading : Bootstrap Class, Extension Class Loader, Application Class Loader
+- Linking : Verification, Preparation, Resolution
+- Initialization : calling constructors, executing static block, assigning values to static variables
+
+#### Runtime Data Area
+
+- Method Area
+- Heap Area
+- Stack Area
+- PC(Program Counter) Register
+- Native Method Stack
+
+#### Execution Engine
+
+- Interpreter
+- JIT Compiler : Compiles bytecode to Machine code.
+- GC (System.GC();)
+- Java Native Interface : Is a bridge that permit supporting packages for other programming languages like C/C++.
+
+#### JVM languages
+
+- Scala
+- Groovy
+- Kotlin
+
+---
+
 ### **public static void main**
 
 - public
@@ -494,35 +535,40 @@ Collections.sort(myCollection);
 ---
 
 ### **List**
-- List is an interface that represents an ordered collection of elements. 
-- Elements in a List can be accessed by their index, and a List can contain duplicate elements. 
+
+- List is an interface that represents an ordered collection of elements.
+- Elements in a List can be accessed by their index, and a List can contain duplicate elements.
 - List interface implementations
-    - ArrayList
-    - LinkedList
-    - Vector
-    - CopyOnWriteArrayList
+  - ArrayList
+  - LinkedList
+  - Vector
+  - CopyOnWriteArrayList
+
 ---
 
 ### **Set**
-- Set is an interface in the Java Collections Framework that represents a collection of unique elements, where each element can occur at most once. 
+
+- Set is an interface in the Java Collections Framework that represents a collection of unique elements, where each element can occur at most once.
 - Set implementations provide a way to store, retrieve, and manipulate elements without duplicates.
 - Set interface implementations
-    - HashSet 
-    - LinkedHashSet 
-    - TreeSet 
-    - EnumSet 
+  - HashSet
+  - LinkedHashSet
+  - TreeSet
+  - EnumSet
 
 ---
 
 ### **Map**
-- Map is an interface in the Java Collections Framework that represents a collection of key-value pairs. 
-- Each key in a Map is associated with a corresponding value, and you can use the key to retrieve its associated value. 
+
+- Map is an interface in the Java Collections Framework that represents a collection of key-value pairs.
+- Each key in a Map is associated with a corresponding value, and you can use the key to retrieve its associated value.
 - Map implementations provide efficient means to store, retrieve, and manipulate key-value pairs.
 - Map interface implementations
-    - HashMap 
-    - TreeMap 
-    - LinkedHashMap 
-    - HashTable 
+  - HashMap
+  - TreeMap
+  - LinkedHashMap
+  - HashTable
+
 ---
 
 ### **Concurrent Hashmap**
@@ -549,6 +595,7 @@ Collections.sort(myCollection);
 ---
 
 ### **Comparator**
+
 - Comparator is an interface in Java is an interface that defines a way to compare two objects for ordering or sorting purposes. It allows you to define custom comparison logic for objects that may not have a natural ordering or for cases where you want to sort objects based on criteria other than their natural order.
 
 ```
@@ -577,6 +624,7 @@ Comparator<MonthlyStatement> comparator = null;
         }
         Collections.sort(expenses, comparator);
 ```
+
 ---
 
 ### **Which collection should we use during multithreading?**
@@ -590,6 +638,7 @@ Comparator<MonthlyStatement> comparator = null;
 ---
 
 ### **Generics**
+
 - Generics allows you to write classes, methods, and interfaces in a way that can work with different data types while providing compile-time type safety. Generics enable you to create reusable and type-safe code by parameterizing types.
 
 ```
@@ -624,6 +673,7 @@ public class Main {
     }
 }
 ```
+
 ---
 
 ### **Interface**
@@ -1030,6 +1080,7 @@ class MyClass implements Serializable {
 ---
 
 ### **Enum**
+
 - Enums are used to define collections of values that are treated as distinct types.
 
 ```
@@ -1059,14 +1110,37 @@ class Animal {
     }
 }
 ```
+
 ---
 
 ### **Garbage Collection**
 
+- Garbage Collection is the process of automatically reclaiming unused memory by destroying unused objects.
 - Garbage Collection is an automated process of managing the memory in Java. It helps to free up the memory space occupied by the objects that are no longer being used by the program.
 - Garbage Collection is one of the key features of Java that helps to make Java a memory-safe language.
+- In c/c++ programmer is responsible for both creation and destruction of objects, forgetting to destroy can cause memory leaks and ultimately lead to out of memory errors
 - When an object is created, it takes up a certain amount of memory on the heap. When the object is no longer being used, it becomes eligible for garbage collection. The garbage collector then frees up the memory space occupied by the object, making it available for other objects to use.
 - Java provides automatic garbage collection, which means that the programmer does not have to explicitly free up memory. The garbage collector runs periodically, or when the heap becomes full, and identifies objects that are no longer being used by the program. It then frees up the memory space occupied by these objects.
+- Java programs are compiled into byte code that can run in the JVM, objects are created in the heap space.
+- Heap space will have Dead & Alive objects
+  - Dead - objects that are no longer referenced will the detected by the GC and deleted.
+  - Alive -
+
+#### Phases in Garbage Collection
+
+- Three phases
+  - Mark : During this phase, the garbage collector traverses all objects in the heap and marks those that are still in use. It typically starts with the root objects (objects directly accessible by the program) and recursively marks all reachable objects.
+  - Sweep : In this phase, the garbage collector scans the entire heap and reclaims memory occupied by unmarked (unreachable) objects. These unmarked objects are considered garbage and are removed from memory.
+  - Compact : In this phase, the garbage collector compacts the memory by moving all live (marked) objects to one contiguous block of memory, eliminating or reducing fragmentation.
+
+#### Types of GC
+
+- Serial GC
+- Concurrent Mark Sweep GC
+- Garbage First GC (default)
+- Epsilon GC
+- Shenandoah GC
+- ZGC
 
 ---
 
