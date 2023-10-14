@@ -6,9 +6,12 @@
 
 #### "Write Once, Run anywhere"
 
+JVM plays a fundamental role in executing Java applications by providing a runtime environment in which they can run.
+
 - VM is a virtual representation of a physical computer
 - Compile Languages
 - Interpreted Languages
+- Java programs are compiled into byte code that can run in the JVM, objects are created in the heap space.
 - JVM Components
   - Class Loader
   - Runtime Data Area
