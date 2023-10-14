@@ -1164,6 +1164,23 @@ class MyClass implements Serializable {
 
 ---
 
+### **Record**
+
+- New feature introduced in Java 16.
+- Records are a new kind of class that was introduced to simplify the creation of classes primarily used to store data.
+- Records provide a concise way to declare classes with named fields, and they automatically generate standard methods such as constructors, getters, `equals()`, `hashCode()`, and `toString()`.
+- Records are particularly useful when you need to define data objects, such as entities representing database records, configuration settings, or simple data transfer objects.
+- Records can also be used in various contexts where you need to work with data, and their concise syntax helps reduce boilerplate code, making your codebase more maintainable and easier to understand.
+
+```
+public record Person(String name, int age) {
+    // You can add methods or additional constructors here
+}
+Person person = new Person("Alice", 30);
+```
+
+---
+
 ### **Enum**
 
 - Enums are used to define collections of values that are treated as distinct types.
@@ -1282,5 +1299,73 @@ Thread 11: Message 4
 Thread 12: Message 4
 
 ```
+
+---
+
+### **New Features : Java**
+
+#### Java 8 (March 2014)
+
+- Lambda Expressions: Introduced lambda expressions for functional programming.
+- Functional Interfaces: The @FunctionalInterface annotation for specifying functional interfaces.
+- Default Methods: Default methods in interfaces for backward compatibility.
+- Streams API: A powerful API for working with sequences of data.
+- New Date and Time API: The java.time package for modern date and time handling.
+- Method References: Simplified method references using :: operator.
+- CompletableFutures: Asynchronous programming support.
+- Nashorn JavaScript Engine: JavaScript engine for embedding scripts.
+
+#### Java 9 (September 2017)
+
+- Module System: Introduction of the module system for modularizing code.
+- JShell (Interactive Shell): A Read-Eval-Print Loop (REPL) for experimenting with Java code.
+- Private Methods in Interfaces: Ability to declare private methods in interfaces.
+- Enhanced Stream API: Additional methods and improvements to the Streams API.
+- New Versioning Scheme: A new versioning scheme and release cycle.
+
+#### Java 10 (March 2018)
+
+- Local-Variable Type Inference: Introduction of the var keyword for local variable type inference.
+
+#### Java 11 (September 2018) - LTS
+
+- HTTP Client: A new HTTP client (standardized in java.net.http package).
+- Nashorn Removal: The Nashorn JavaScript engine was deprecated and later removed.
+- Flight Recorder: Flight Recorder and Mission Control tools are included in OpenJDK distributions.
+
+#### Java 12 (March 2019)
+
+- Switch Expressions (Preview): Enhanced switch statement for both statement and expression forms.
+- Shenandoah Garbage Collector (Preview): A low-pause-time garbage collector.
+- New Features: Smaller features, such as String::indent and improved StringBuilder.
+
+#### Java 13 (September 2019)
+
+- Text Blocks (Preview): Introduction of text blocks for multi-line strings.
+- Switch Expressions Enhancement: The yield statement for switch expressions.
+
+#### Java 14 (March 2020)
+
+- Records (Preview): Introduction of record classes for concise data classes.
+- Pattern Matching (Preview): Pattern matching for instanceof and switch expressions.
+- Helpful NullPointerExceptions: Improved error messages for NullPointerException.
+
+#### Java 15 (September 2020)
+
+- Sealed Classes (Preview): Sealed classes to control inheritance.
+- Pattern Matching Enhancement (Preview): Patterns in catch clauses.
+- Hidden Classes: Introduction of non-discoverable classes for security and encapsulation.
+
+#### Java 16 (March 2021)
+
+- Strong encapsulation of JDK internals: Further restrictions on access to internal APIs.
+- Pattern Matching (Second Preview): Improved instanceof and switch expressions.
+- Records (Final): Record classes are finalized.
+
+#### Java 17 (September 2021) - LTS
+
+- Sealed Classes (Final): Sealed classes feature is finalized.
+- Pattern Matching (Final): Pattern matching feature is finalized.
+- Foreign Function & Memory API (Incubator): Introduction of the Foreign Function & Memory API for native interop.
 
 ---
